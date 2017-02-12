@@ -12,6 +12,25 @@ export default class TodosListItem extends React.Component {
         //console.log(this.props.task);
     }
 
+    renderTaksSection() {
+
+        const {task, isCompleted} = this.props;
+
+        const taskStyle = {
+            color: isCompleted ? 'green' : 'red',
+            cursor: 'pointer'
+        };
+
+        return (
+            <td
+                style = {taskStyle}
+                onClick={this.props.toogleTask.bind(this, task)}
+            >
+                {task}
+            </td>
+        );
+    }
+
     renderActionsSection() {
         if (this.state.isEditing) {
             return (
@@ -32,7 +51,7 @@ export default class TodosListItem extends React.Component {
     render() {
         return (
             <tr>
-                <td> {this.props.task} </td>
+                {this.renderTaksSection()}
                 {this.renderActionsSection()}
             </tr>
         );
