@@ -7,13 +7,15 @@ import TodoListItem from "./todos-list-item";
 export default class TodosList extends React.Component {
 
     renderItems() {
-        return _.map(this.props.todos,
+        var x = _.map(this.props.todos,
             (todo, index) => <TodoListItem key={index} {...todo} />);
+
+        //console.log(x);
+
+        return x;
     }
 
     render() {
-
-        console.log(this.props);
 
         return (
             <table>
